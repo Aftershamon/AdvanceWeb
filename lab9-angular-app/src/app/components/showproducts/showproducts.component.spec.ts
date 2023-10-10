@@ -11,7 +11,7 @@ describe('ShowproductsComponent', () => {
       declarations: [ ShowproductsComponent ]
     })
     .compileComponents();
-  }));
+  })); 
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ShowproductsComponent);

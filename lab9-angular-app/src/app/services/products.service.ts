@@ -18,7 +18,7 @@ export class ProductsService {
           return data;
         })
       );
-  }
+  } 
 
   getProducts() {
     return this.http.get<any>('http://localhost:3000/products/get').pipe(

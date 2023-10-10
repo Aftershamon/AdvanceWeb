@@ -13,7 +13,7 @@ export class ShowproductsComponent implements OnInit {
     this.onLoading();
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
 
   onLoading(){
