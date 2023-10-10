@@ -43,14 +43,20 @@ export class AddproductComponent implements OnInit {
   onChangeImg(e: any) {
     if (e.target.files.length > 0) {
       const file = e.target.files[0];
+      var pattern = /image-*/;
       const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.previewLoaded = true;
-        this.productForm.patchValue({
-          img: reader.result?.toString(),
-        });
-      };
+      if (!file.type.match(pattern)) {
+        alert('invalid format')
+        this.productForm.reset()
+      } else {
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          this.previewLoaded = true;
+          this.productForm.patchValue({
+            img: reader.result?.toString(),
+          });
+        };
+      }
     }
   }
 
