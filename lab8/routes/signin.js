@@ -22,18 +22,31 @@ const compareHash = async(plainText, hashText) =>{
     });
 }
 
-const findUser = (stdid) =>{
-    return new Promise((resolve, reject) =>{
-        console.log("find")
-        if(stdid == 'B6000333'){
-            console.log("pass")
-            resolve(students[2])
-        }else{
-            console.log("error")
-            reject(new Error('Cannot find username!'))
-        }
-    })
-}
+// const findUser = (stdid) =>{
+//     return new Promise((resolve, reject) =>{
+//         console.log("find")
+//         if(stdid == 'B6000333'){
+//             console.log("pass")
+//             resolve(students[2])
+//         }else{
+//             console.log("error")
+//             reject(new Error('Cannot find username!'))
+//         }
+//     })
+// }
+
+const findUser = (stdid) => {
+  return new Promise((resolve, reject) => {
+    const user = students.find((student) => student.stdid === stdid);
+      if (user) {
+        console.log("pass");
+        resolve(user);
+    } else {
+      reject(new Error("Cannot find username!"));
+    }
+  });
+};
+
 
 router.route('/signin').post( async (req, res) =>{
         const playload = {
